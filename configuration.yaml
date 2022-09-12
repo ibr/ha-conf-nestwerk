@@ -1,0 +1,33 @@
+
+# Loads default set of integrations. Do not remove.
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+python_script:
+
+logger:
+  default: info
+  logs:
+    homeassistant.components.python_script: debug
+    homeassistant.components.automation: info
+
+# Example configuration.yaml entry to ping host 192.168.0.1 with 2 packets every 30 seconds.
+binary_sensor:
+  - platform: ping
+    host: www.ibr-oss.de
+    name: "server"
+    count: 2
+    scan_interval: 30
+
+# UVR1611 Data
+#blnet:
+#    resource: http://192.168.1.2
+#    password: optional_blnet_password
+#    can_node: 1
+#    scan_interval: optional_scan_interval_seconds
