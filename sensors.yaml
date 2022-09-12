@@ -1,0 +1,10 @@
+# Latest Release 
+# https://www.home-assistant.io/components/sensor.rest/
+- platform: rest
+  name: Latest Release
+  resource: http://www.nestwerk.de/version.json
+  json_attributes:
+    - release_notes
+    - release_description
+  value_template: "{{ value_json.current_version }}"
+  scan_interval: 7200
